@@ -1,11 +1,12 @@
 package bdbt_portranzytowy;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
 
+import bdbt_portranzytowy.models.Towar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,21 +28,18 @@ public class TowaryDAO {
 	public List<Towar> list() {
 		String sql = "SELECT * FROM TOWARY ORDER BY NR_TOWARU";
 
-		RowMapper<Towar> rowMapper = new RowMapper<>() {
-			public Towar mapRow(ResultSet result, int row) throws SQLException {
-				Integer id = result.getInt(1);
-				float waga = result.getFloat(2);
-				float szerokosc = result.getFloat(3);
-				float dlugosc = result.getFloat(4);
-				float wysokosc = result.getFloat(5);
-				String opis = result.getString(6);
-
-				return new Towar(id, waga, szerokosc, dlugosc, wysokosc, opis);
-			}
+		RowMapper<Towar> rowMapper = (ResultSet rs, int rowNum) -> {
+			return new Towar(rs.getInt("nr_towaru"),
+					rs.getFloat("waga"),
+					rs.getFloat("szerokosc"),
+					rs.getFloat("dlugosc"),
+					rs.getFloat("wysokosc"),
+					rs.getString("opis"));
 		};
 
-		List<Towar> listTowary = jdbcTemplate.query(sql, rowMapper);
-		return listTowary;
+
+		List<Towar> listTowarow = jdbcTemplate.query(sql, rowMapper);
+		return listTowarow;
 	}
 
 	/* Constructor */

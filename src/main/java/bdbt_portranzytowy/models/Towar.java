@@ -1,4 +1,4 @@
-package bdbt_portranzytowy;
+package bdbt_portranzytowy.models;
 
 public class Towar {
 	

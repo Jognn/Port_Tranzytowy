@@ -1,7 +1,9 @@
-package bdbt_portranzytowy;
+package bdbt_portranzytowy.controllers;
 
 import java.util.List;
 
+import bdbt_portranzytowy.models.Towar;
+import bdbt_portranzytowy.TowaryDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

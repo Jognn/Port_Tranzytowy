@@ -10,10 +10,10 @@
 	<!-- Java 11 Jak wygenerujemy plik .jar i nie bedziemy wstanie uruchomic 
 		to zmienaimy na 8 i JDBC -->
 	<properties>
-		<java.version>11</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
-		
-	
 
 	<!-- Parent details -->
 	<parent>
@@ -24,6 +24,7 @@
 
 	<!-- Dependencies -->
 	<dependencies>
+
 		<!-- spring-boot-starter jdbc -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -50,6 +51,19 @@
 			<scope>system</scope>
 			<systemPath>F:/BDBT/Oracle JDBC/ojdbc10.jar</systemPath>
 		</dependency>
+
+		<!-- JUNI tests -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<!-- Plugins -->
