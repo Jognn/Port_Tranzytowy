@@ -1,9 +1,8 @@
 package bdbt_portranzytowy.controllers;
 
 import java.util.List;
-
-import bdbt_portranzytowy.models.Towar;
-import bdbt_portranzytowy.TowaryDAO;
+import bdbt_portranzytowy.models.*;
+import bdbt_portranzytowy.daos.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class AppController {
+@RequestMapping(value = "/towary/")
+public class TowaryController {
 	
 	@Autowired
 	private TowaryDAO towaryDao;
@@ -26,25 +26,20 @@ public class AppController {
 		return "index";
 	}
 	
-//	@RequestMapping(value="/error")
-//	public String viewErrorPage(Model model) {
-//		return "redirect:/";
-//	}
-	
 	@RequestMapping(value="/new")
 	public String showNowyTowar(Model model) {
 		Towar towar = new Towar();
 		model.addAttribute("towar", towar);
 		return "nowy_towar";
 	}
-	
+
 	@RequestMapping(value="/add", method=RequestMethod.POST)
 	public String add(@ModelAttribute("towar") Towar towar) {
 		if(towar != null)
 			towaryDao.add(towar);
 		return "redirect:/";
 	}
-	
+
 	@RequestMapping(value="/edit/{id}")
 	public ModelAndView showEdytujTowar(@PathVariable(name = "id") int id){
 		ModelAndView mav = new ModelAndView("edytuj_towar");

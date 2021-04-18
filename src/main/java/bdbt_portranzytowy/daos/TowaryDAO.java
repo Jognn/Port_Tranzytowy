@@ -1,4 +1,4 @@
-package bdbt_portranzytowy;
+package bdbt_portranzytowy.daos;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;

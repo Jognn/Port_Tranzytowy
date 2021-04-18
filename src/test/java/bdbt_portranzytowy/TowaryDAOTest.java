@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import bdbt_portranzytowy.daos.TowaryDAO;
 import bdbt_portranzytowy.models.Towar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

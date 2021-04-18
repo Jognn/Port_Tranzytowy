@@ -7,8 +7,6 @@
 	<artifactId>PortTranzytowy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<!-- Java 11 Jak wygenerujemy plik .jar i nie bedziemy wstanie uruchomic 
-		to zmienaimy na 8 i JDBC -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
